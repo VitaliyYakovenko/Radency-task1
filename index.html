@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+  
+    <table>
+        <tr  id="tr">
+            <th>Name</th>
+            <th>Created</th>
+            <th>Category</th>
+            <th>Content</th>
+            <th>Dates</th>
+            <th>
+                <svg width="20" hidth="20">
+                    <use href="./sprite.svg#icon-data"></use>
+                </svg>
+                <svg width="20" hidth="20">
+                    <use href="./sprite.svg#icon-trash"></use>
+                </svg>
+            </th>
+        </tr> 
+    </table>
+    <button type="button" class="btnCraete">Create Note</button>
+   
+
+    <div class="backdrop is-hidden">
+    <div class="modal">
+        
+   
+
+        <button class="btnCloseModal" type="button">Close</button>
+    </div>
+    </div>
+
+    <script  type="module" src="index.js"></script>
+</body>
+</html>
