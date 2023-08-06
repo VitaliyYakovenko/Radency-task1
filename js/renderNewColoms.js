@@ -1,21 +1,23 @@
 const MAX_LENGTH_CONTENT = 16;
 
 
+
 function truncateContent(content) {
-     
     if (content.length > MAX_LENGTH_CONTENT) {
         return content.slice(0, MAX_LENGTH_CONTENT) + "...";
     }
     return content;
 };
 
+
 function renderNewColoms(data) {
 
+    
+    return data.map(({id, name, created, category, content, dates }) => {
+        
+        const resultContent = truncateContent(content);
+        
 
-    return data.map(({ name, created, category, content, dates }) => {
-        
-        const resulContent = truncateContent(content);
-        
         let categoryIcon;
         switch (category) {
             case "Task":
@@ -37,12 +39,12 @@ function renderNewColoms(data) {
                 categoryIcon = "";
         }
  
-        return ` <tr class="nodeTr">
+        return ` <tr data-id="${id}" class="nodeTr">
             <td>${categoryIcon}</td>
             <td>${name}</td>
             <td>${created}</td>
             <td>${category}</td>
-            <td>${resulContent}</td>
+            <td>${resultContent}</td>
             <td>${dates}</td>
             <td>
                 <svg width="20"  height: "4" data-edit="edit">
@@ -64,4 +66,22 @@ function renderNewColoms(data) {
    
 };
 
-export default renderNewColoms;
+
+/////////////////////////////////////////////////////
+
+function formatUnixTime(unixTime) {
+  const date = new Date(unixTime * 1000);
+  const options = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  };
+  
+  return date.toLocaleString('uk-UA', options);
+}
+
+ export default renderNewColoms;
